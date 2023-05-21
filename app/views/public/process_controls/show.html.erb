@@ -1,0 +1,39 @@
+<%  @process_controls.each do |process_control| %>
+<div>
+  <h1>工程管理</h1>
+  <h4>機械号機 <%= process_control.machine.machine_unit %>-<%= process_control.machine.machine_number %></h4>
+<% if process_control.instruction_id.present? %>
+<h4>品名</h4>
+  <%= process_control.instruction.product_name %><br>
+<h4>サイズ</h4>
+  <%= process_control.instruction.conductor %>m/m<br>
+<h4>仕上外径</h4>
+  <%= process_control.instruction.finish %>mm<br>
+<h4>下地温度</h4>
+  <%= process_control.instruction.temperature_top %>°c<br>
+<h4>上地温度</h4>
+  <%= process_control.instruction.temperature_under %>°c<br>
+<h4>速度</h4>
+  <%= process_control.instruction.speed %>m/min<br>
+  
+<h3>CCS</h3>
+<h4>set温度</h4>
+  <%= process_control.temperature_set %>°c
+<h4>燃焼温度</h4>
+  <%= process_control.temperature_out %>°c
+
+<h3>チェック項目</h3>
+<h4>外観</h4>
+  <%= process_control.check_exterior %>
+<h4>ライン確認</h4>
+  <%= process_control.check_line %>
+<h4>塗料</h4>
+  <%= process_control.check_paint %>
+<h4>測定確認者</h4>
+  <%= process_control.check_neme %>
+  
+  <h4><%= process_control.status %></h4>
+<% end %>
+<h4><%= process_control.status %></h4>
+</div>
+<% end %>

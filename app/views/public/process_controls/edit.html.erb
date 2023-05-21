@@ -1,0 +1,34 @@
+<div>
+<h1>工程管理編集</h1>
+<% if @process_control.instruction_id.present? %>
+ <h4>機械号機 <%= @process_control.machine.machine_unit %>-<%= @process_control.machine.machine_number %></h4>
+ <h4>品名</h4>
+  <%= @process_control.instruction.product_name %><br>
+ <h4>サイズ</h4>
+  <%= @process_control.instruction.conductor %>m/m<br>
+<% end %>
+<%= form_with model: @process_control,url: process_control_path(@process_control.id) do |f| %>
+ <h2>CCS</h2>
+  <h4>set温度</h4>
+    <%= f.text_field :temperature_set %>°c
+  <h4>燃焼温度</h4>
+    <%= f.text_field :temperature_out %>°c
+
+  <h2>チェック項目</h2>
+  <h4>外観</h4>
+    <%= f.text_field :check_exterior %>
+  <h4>ライン確認</h4>
+    <%= f.text_field :check_line %>
+  <h4>塗料</h4>
+    <%= f.text_field :check_paint %>
+  <h4>測定確認者</h4>
+    <%= f.text_field :check_neme %>
+
+  <h4>稼働状況</h4>
+    <% ProcessControl.statuses.keys.each do |status| %>
+      <%= status %>
+      <%= f.radio_button :status, status %>
+    <% end %>
+ <%= f.submit '変更保存' %>
+<% end %>
+</div>

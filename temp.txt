@@ -1,0 +1,1 @@
+machine_id:1,product_name:"",conductor:"",conductor_range:"",insulator:"",insulator_range:"",finish:"",finish_range:"",order:200,volume:"",bobbin:"",temperature_top:"",temperature_under:"",paint_top:"",paint_under:"",speed:"",lubricant:"",apply:"",product_time:"",material:"",delivery:"",ovrview:"",work_name:""

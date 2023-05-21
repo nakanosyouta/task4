@@ -1,0 +1,25 @@
+<div>
+  <h1>焼付機械</h1>
+  
+  <table>
+  <thead>
+      <th>機械</th>
+      <th>制作製品</th>
+  </thead>
+  <tbody>
+  <% @machines.each do |machine| %>
+      <tr>
+          
+          <td>
+            <%= link_to machine_path(machine.id) do %>
+            <%= machine.machine_unit %>-<%= machine.machine_number %>
+            <% end %>
+          </td>
+          
+          <td>instruction_id</td>
+      </tr>
+  <% end %>
+  </tbody>
+  </table>
+  
+</div>

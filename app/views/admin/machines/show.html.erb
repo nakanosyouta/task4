@@ -1,0 +1,15 @@
+<div> 
+  <p>焼付機械詳細<p>
+   <h2><%= @machine.machine_unit %>号機 <%= @machine.machine_number %>番機械</h2>
+<%= link_to '編集する', edit_admin_machine_path %> 
+  <p>制作製品</p>
+<% @machine.instructions.each do |instruction| %>
+instruction_id: <%= instruction.id %><br>
+<%= instruction.product_name %> <%= instruction.conductor %><br>
+
+machine_id: <%= instruction.machine_id %><br>
+<% end %>
+  　
+
+<%= link_to '焼付機械一覧', admin_machines_path %>
+</div>

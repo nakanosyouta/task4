@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Task4</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    
+    <header>
+      <li>
+        <h1>LOGO</h1>
+      </li>
+      
+      <li>
+        <%= link_to 'ログイン', new_customer_session_path %>
+        <%= link_to 'ログアウト', destroy_customer_session_path %>
+      </li>
+      
+      <li>
+        <%= link_to '社員',  new_customer_registration_path %>
+      </li>
+      
+      <li>
+        <%= link_to '指示書admin', admin_instructions_path %>
+        <%= link_to '指示書', instructions_path %>
+      </li>
+      
+      <li>
+        <%= link_to '工程管理表admin', admin_process_controls_path %>
+        <%= link_to '工程管理表new', new_process_control_path %>
+      </li>
+      
+      <li>
+        <%= link_to '焼付機械admin', admin_machines_path %>
+        <%= link_to '焼付機械', machines_path %>
+      </li>
+      
+    </header>
+    
+    <%= yield %>
+  </body>
+</html>

@@ -1,0 +1,61 @@
+<div>
+  <h1>指示書</h1>
+
+  <h4>ID</h4>
+   <%= @instruction.id %>
+
+  <h4>品名</h4>
+   <%= @instruction.product_name %>
+
+  <h4>導体径</h4>
+   <%= @instruction.conductor %>mm
+  <h4>導体径範囲</h4>
+   <%= @instruction.conductor_range %>mm
+
+  <h4>絶縁外径</h4>
+   <%= @instruction.insulator %>mm
+  <h4>絶縁外径範囲</h4>
+   <%= @instruction.insulator_range %>mm
+
+  <h4>仕上径</h4>
+   <%= @instruction.finish %>mm
+  <h4>仕上径範囲</h4>
+   <%= @instruction.finish_range %>mm
+
+  <h4>納品先</h4>
+   <%= @instruction.delivery %>
+  <h4>注文数量</h4>
+   <%= @instruction.order %>kg
+  <h4>巻量</h4>
+   <%= @instruction.volume %>kg
+  <h4>使用リール</h4>
+   TP-<%= @instruction.bobbin %>
+
+  <h4>上地温度</h4>
+   <%= @instruction.temperature_top %>°c
+  <h4>下地温度</h4>
+   <%= @instruction.temperature_under %>°c
+
+  <h4>上地塗料</h4>
+   <%= @instruction.paint_top %>
+  <h4>下地塗料</h4>
+   <%= @instruction.paint_under %>
+
+  <h4>速度</h4>
+   <%= @instruction.speed %>m/m
+  <h4>時間</h4>
+   <%= @instruction.product_time %>
+
+  <h4>滑剤</h4>
+   <%= @instruction.lubricant %>
+  <h4>塗布方法</h4>
+   <%= @instruction.apply %>
+
+  <h4>屑材</h4>
+   <%= @instruction.material %>
+
+  <h4>概要</h4>
+   <%= @instruction.ovrview %>
+
+<%= link_to '指示書編集', edit_admin_instruction_path %>
+</div>

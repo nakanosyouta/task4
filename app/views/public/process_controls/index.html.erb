@@ -1,0 +1,19 @@
+<div>
+  <h1>工程管理</h1>
+  <% @process_controls.each do |process_control| %>
+  <h4>機械号機 <%= process_control.machine.machine_unit %>-<%= process_control.machine.machine_number %></h4>
+  <% if process_control.instruction_id.present? %>
+  <p><%= process_control.instruction.product_name %> <%= process_control.instruction.conductor %></P>
+  
+  <% end %>
+   <tr>
+      <td>
+        <%= link_to admin_process_control_path(process_control.id) do %>
+         <%= process_control.check_neme %>
+        <% end %>
+      </td>
+    </tr>
+
+  <% end %>
+
+</div>

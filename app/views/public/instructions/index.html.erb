@@ -1,0 +1,28 @@
+<div>
+  <h1>指示書</h1>
+
+  <table>
+  <thead>
+      <th>ID番号</th>
+      <th>品名</th>
+      <th>サイズ</th>
+  </thead>
+  <tbody>
+  <% @instructions.each do |instruction| %>
+      <tr>
+          
+          <td>
+            <%= link_to instruction_path(instruction.id) do %>
+              <%= instruction.id %>
+            <% end %>
+          </td>
+          
+          <td><%= instruction.product_name %></td>
+          
+          <td><%= instruction.conductor %>mm</td>
+      </tr>
+  <% end %>
+  </tbody>
+  </table>
+  
+</div>

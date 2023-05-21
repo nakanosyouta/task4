@@ -1,0 +1,62 @@
+<div>
+  <h1>指示書新規登録</h1>
+
+<%= form_with model: @instruction,url: admin_instruction_path(@instruction.id) do |f| %>
+
+    <h4>品名</h4>
+     <%= f.text_field :product_name %>
+
+    <h4>導体径</h4>
+     <%= f.text_field :conductor %>mm
+    <h4>導体径範囲</h4>
+     <%= f.text_field :conductor_range %>mm
+
+    <h4>絶縁外径</h4>
+     <%= f.text_field :insulator %>mm
+    <h4>絶縁外径範囲</h4>
+     <%= f.text_field :insulator_range %>mm
+
+    <h4>仕上径</h4>
+     <%= f.text_field :finish %>mm
+    <h4>仕上径範囲</h4>
+     <%= f.text_field :finish_range %>mm
+
+    <h4>納品先</h4>
+     <%= f.text_field :delivery %>
+    <h4>注文数量</h4>
+     <%= f.text_field :order %>kg
+    <h4>巻量</h4>
+     <%= f.text_field :volume %>kg
+    <h4>使用リール</h4>
+     TP-<%= f.text_field :bobbin %>
+
+    <h4>上地温度</h4>
+     <%= f.text_field :temperature_top %>°c
+    <h4>下地温度</h4>
+     <%= f.text_field :temperature_under %>°c
+
+    <h4>上地塗料</h4>
+     <%= f.text_field :paint_top %>
+    <h4>下地塗料</h4>
+     <%= f.text_field :paint_under %>
+
+    <h4>速度</h4>
+     <%= f.text_field :speed %>m/m
+    <h4>時間</h4>
+     <%= f.text_field :product_time %>
+
+    <h4>滑剤</h4>
+     <%= f.text_field :lubricant %>
+    <h4>塗布方法</h4>
+     <%= f.text_field :apply %>
+
+    <h4>屑材</h4>
+     <%= f.text_field :material %>
+
+    <h4>概要</h4>
+     <%= f.text_field :ovrview %>
+
+    <%= f.submit '変更保存' %>
+  <% end %>
+
+</div>

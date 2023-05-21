@@ -1,0 +1,22 @@
+<div> 
+<h1>工程管理編集</h1>
+<%= form_with model: @process_control,url: process_control_path do |f| %>
+
+ <h2>CCS</h2>
+  <h4>set温度</h4>
+    <%= f.text_field :temperature_set %>°c
+  <h4>燃焼温度</h4>
+    <%= f.text_field :temperature_out %>°c
+
+  <h2>チェック項目</h2>
+  <h4>外観</h4>
+    <%= f.text_field :check_exterior %>
+  <h4>ライン確認</h4>
+    <%= f.text_field :check_line %>
+  <h4>塗料</h4>
+    <%= f.text_field :check_paint %>
+  <h4>測定確認者</h4>
+    <%= f.text_field :check_neme %>
+ <%= f.submit '変更保存' %>
+<% end %>
+</div>
