@@ -1,18 +1,39 @@
 <div>
   <p>焼付機械詳細<p>
    <h2><%= @machine.machine_unit %>号機 <%= @machine.machine_number %>番機械</h2>
-  <p>制作製品</p>
-  　<span>instruction_id</span>
 
-<%= link_to '工程管理show', process_control_path(@machine.id) %>
-<%= link_to '工程管理', new_process_control_path %>
-<%= link_to '焼付機械一覧', machines_path %>
+<%= link_to '戻る', machines_path %>
+<%= link_to '工程管理一覧', process_controls_path %>
+ <p>制作製品</p>
+
+<% @process_controls.each do |process_control| %>
+<%= link_to process_control_path(process_control.id) do %>
+<h2><%= process_control.instruction.product_name %> <%= process_control.instruction.conductor %>m/m</h2>
+<% end %>
+<h4><%= process_control.instruction.delivery %></h4>
+  <table>
+  <thead>
+      <th>下地塗料</th>
+      <th>上地塗料</th>
+      <th>滑剤</th>
+  </thead>
+  <tbody>
+
+      <tr>
+       　  <td>/<%= process_control.instruction.paint_under %></td>
+
+          <td>/<%= process_control.instruction.paint_top %></td>
+
+          <td>/<%= process_control.instruction.lubricant %><%= process_control.instruction.apply %></td>
+      </tr>
+      
+  </tbody>
+  </table>
+<% end %>
+
+
+
+
 </div>
 
 
-<% @machine.instructions.each do |instruction| %>
-<%= instruction.id %><br>
-<%= instruction.product_name %> <%= instruction.conductor %><br>
-<%= instruction.order %><br>
-machine_id: <%= instruction.machine_id %><br>
-<% end %>

@@ -16,7 +16,11 @@
             <% end %>
           </td>
           
-          <td>instruction_id</td>
+          <td>
+            <% machine.process_controls.where(status: 1).each do |pc| %>
+              <p><%= pc.instruction&.product_name %></p>
+            <% end %>
+          </td>
       </tr>
   <% end %>
   </tbody>

@@ -3,6 +3,10 @@
 
 <%= form_with model: @instruction,url: admin_instruction_path(@instruction.id) do |f| %>
 
+  <h4>機械選択</h4>
+  <%= f.select :machine_id, Machine.all.map{ |machine| ["#{machine.machine_unit} - #{machine.machine_number}", machine.id] } %>
+ 
+  <%= render 'layouts/error_messages', model: f.object %>
     <h4>品名</h4>
      <%= f.text_field :product_name %>
 

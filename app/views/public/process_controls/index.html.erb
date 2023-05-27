@@ -1,19 +1,37 @@
 <div>
   <h1>工程管理</h1>
+ 
+  <table>
+  <thead>
+      <th>機械</th>
+      <th>制作製品</th>
+      <th>作業確認者</th>
+      <th>稼働状況</th>
+  </thead>
+  <tbody>
   <% @process_controls.each do |process_control| %>
-  <h4>機械号機 <%= process_control.machine.machine_unit %>-<%= process_control.machine.machine_number %></h4>
-  <% if process_control.instruction_id.present? %>
-  <p><%= process_control.instruction.product_name %> <%= process_control.instruction.conductor %></P>
+      <tr>
+          
+          <td><%= process_control.machine.machine_unit %>-<%= process_control.machine.machine_number %></td>
+          
+          <td>
+            <% if process_control.instruction_id.present? %>
+             <%= process_control.instruction.product_name %> <%= process_control.instruction.conductor %>
+            <% end %>
+          </td>
+          
+          <td>
+            <%= link_to process_control_path(process_control.id) do %>
+             <%= process_control.check_neme %>
+            <% end %>
+          </td>
+          
+          <td><h4><%= process_control.status_i18n %></h4></td>
+      </tr>
+  <% end %>
+  </tbody>
+  </table>
   
-  <% end %>
-   <tr>
-      <td>
-        <%= link_to admin_process_control_path(process_control.id) do %>
-         <%= process_control.check_neme %>
-        <% end %>
-      </td>
-    </tr>
-
-  <% end %>
+  
 
 </div>

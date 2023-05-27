@@ -1,15 +1,38 @@
-<div> 
+<div>
   <p>焼付機械詳細<p>
    <h2><%= @machine.machine_unit %>号機 <%= @machine.machine_number %>番機械</h2>
-<%= link_to '編集する', edit_admin_machine_path %> 
-  <p>制作製品</p>
-<% @machine.instructions.each do |instruction| %>
-instruction_id: <%= instruction.id %><br>
-<%= instruction.product_name %> <%= instruction.conductor %><br>
+<%= link_to '機械編集', edit_admin_machine_path %>
+<%= link_to '戻る', admin_machines_path %>
+ <p>制作製品</p>
 
-machine_id: <%= instruction.machine_id %><br>
+<% @process_controls.each do |process_control| %>
+<%= link_to admin_process_control_path(process_control.id) do %>
+<h3><%= process_control.instruction.product_name %> <%= process_control.instruction.conductor %>m/m</h3>
 <% end %>
-  　
+<h4><%= process_control.instruction.delivery %></h4>
+  <table>
+  <thead>
+      <th>下地塗料</th>
+      <th>上地塗料</th>
+      <th>滑剤</th>
+  </thead>
+  <tbody>
 
-<%= link_to '焼付機械一覧', admin_machines_path %>
+      <tr>
+       　  <td>/<%= process_control.instruction.paint_under %></td>
+
+          <td>/<%= process_control.instruction.paint_top %></td>
+
+          <td>/<%= process_control.instruction.lubricant %><%= process_control.instruction.apply %></td>
+      </tr>
+  </tbody>
+  </table>
+
+<% end %>
+
+<%# link_to "機械削除", admin_machine_path(@machine.id), method: :delete, "data-confirm" => "本当に削除しますか？" %>
+
+
+</div>
+
 </div>

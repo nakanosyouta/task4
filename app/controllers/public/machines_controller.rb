@@ -1,6 +1,7 @@
 class Public::MachinesController < ApplicationController
   def index
     @machines = Machine.all
+    
   end
 
   def new
@@ -16,7 +17,7 @@ class Public::MachinesController < ApplicationController
 
   def show
     @machine = Machine.find(params[:id])
-
+    @process_controls = @machine.process_controls.where(status: 1)
   end
 
   def edit

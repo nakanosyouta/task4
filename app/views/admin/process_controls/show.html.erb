@@ -1,7 +1,7 @@
 <div>
 <h1>工程管理</h1>
- 
   <h4>機械号機 <%= @process_control.machine.machine_unit %>-<%= @process_control.machine.machine_number %></h4>
+<%= link_to '戻る', :back %>
 <% if @process_control.instruction_id.present? %>
 <h4>品名</h4>
   <%= @process_control.instruction.product_name %><br>
@@ -32,5 +32,6 @@
 <h4>測定確認者</h4>
   <%= @process_control.check_neme %>
 <% end %>
-<%= link_to '工程管理edit', edit_process_control_path %>
+<h4><%= @process_control.status_i18n %></h4>
+
 </div>

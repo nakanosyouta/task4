@@ -17,30 +17,55 @@
         <h1>LOGO</h1>
       </li>
       
+      <% if admin_signed_in? %>
+      
       <li>
-        <%= link_to 'ログイン', new_customer_session_path %>
-        <%= link_to 'ログアウト', destroy_customer_session_path %>
+        <%= link_to 'ログアウト', destroy_admin_session_path, method: :delete %>
       </li>
       
       <li>
-        <%= link_to '社員',  new_customer_registration_path %>
+        <%= link_to '指示書一覧', admin_instructions_path %>
       </li>
       
       <li>
-        <%= link_to '指示書admin', admin_instructions_path %>
-        <%= link_to '指示書', instructions_path %>
+        <%= link_to '工程管理表一覧', admin_process_controls_path %>
       </li>
       
       <li>
-        <%= link_to '工程管理表admin', admin_process_controls_path %>
-        <%= link_to '工程管理表new', new_process_control_path %>
+        <%= link_to '焼付機械一覧', admin_machines_path %>
       </li>
       
       <li>
-        <%= link_to '焼付機械admin', admin_machines_path %>
-        <%= link_to '焼付機械', machines_path %>
+        <%= link_to 'トップページ', root_path %>
       </li>
       
+      <% else %>
+      
+      <li>
+        <%= link_to '管理者ログイン', new_admin_session_path %>
+      </li>
+      
+      <li>
+        <%= link_to '指示書一覧', instructions_path %>
+      </li>
+      
+      <li>
+        <%= link_to '新規工程管理表', new_process_control_path %>
+      </li>
+      
+      <li>
+        <%= link_to '工程管理表一覧', process_controls_path %>
+      </li>
+      
+      <li>
+        <%= link_to '焼付機械一覧', machines_path %>
+      </li>
+      
+      <li>
+        <%= link_to 'トップページ', root_path %>
+      </li>
+      
+      <% end %>
     </header>
     
     <%= yield %>

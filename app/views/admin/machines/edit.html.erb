@@ -2,13 +2,14 @@
   <h1>焼付機械新規登録</h1>
 
 <%= form_with model: @machine,url: admin_machine_path(@machine.id) do |f| %>
-    
+  <%= render 'layouts/error_messages', model: f.object %>
     <h4>機械号機</h4>
      <%= f.text_field :machine_unit %>
     <h4>機械番号</h4>
      <%= f.text_field :machine_number %>
 
     <%= f.submit '変更保存' %>
-<% end %>
 
+<% end %>
+<%= link_to '戻る', admin_machine_path %>
 </div>

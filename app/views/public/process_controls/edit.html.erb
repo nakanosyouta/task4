@@ -1,14 +1,30 @@
 <div>
 <h1>工程管理編集</h1>
-<% if @process_control.instruction_id.present? %>
- <h4>機械号機 <%= @process_control.machine.machine_unit %>-<%= @process_control.machine.machine_number %></h4>
- <h4>品名</h4>
-  <%= @process_control.instruction.product_name %><br>
- <h4>サイズ</h4>
+
+ <%= form_with model: @process_control,url: process_control_path(@process_control.id) do |f| %>
+ <%= render 'layouts/error_messages', model: f.object %>
+ <h4>稼働状況</h4>
+  <%= f.collection_radio_buttons :status, ProcessControl.statuses_i18n, :first , :last%>
+  <%= f.submit '変更保存' %>
+ 
+ <h4>機械選択</h4>
+  <%= f.select :machine_id, Machine.all.map{ |machine| ["#{machine.machine_unit} - #{machine.machine_number}", machine.id] } %>
+  
+  <h4>指示書選択</h4>
+  <%= f.select :instruction_id, Instruction.all.map{ |instruction| [" No.#{instruction.id} / #{instruction.product_name}", instruction.id] } %>
+  
+  <% if @process_control.instruction_id.present? %>
+  <h4>サイズ</h4>
   <%= @process_control.instruction.conductor %>m/m<br>
+  <h4>下地温度</h4>
+  <%= @process_control.instruction.temperature_top %>°c<br>
+  <h4>上地温度</h4>
+  <%= @process_control.instruction.temperature_under %>°c<br>
+  <h4>速度</h4>
+  <%= @process_control.instruction.speed %>m/min<br>
 <% end %>
-<%= form_with model: @process_control,url: process_control_path(@process_control.id) do |f| %>
- <h2>CCS</h2>
+  
+  <h2>CCS</h2>
   <h4>set温度</h4>
     <%= f.text_field :temperature_set %>°c
   <h4>燃焼温度</h4>
@@ -23,12 +39,5 @@
     <%= f.text_field :check_paint %>
   <h4>測定確認者</h4>
     <%= f.text_field :check_neme %>
-
-  <h4>稼働状況</h4>
-    <% ProcessControl.statuses.keys.each do |status| %>
-      <%= status %>
-      <%= f.radio_button :status, status %>
-    <% end %>
- <%= f.submit '変更保存' %>
 <% end %>
 </div>

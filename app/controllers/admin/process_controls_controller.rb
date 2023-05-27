@@ -34,7 +34,7 @@ class Admin::ProcessControlsController < ApplicationController
    private
 
   def process_control_params
-    params.require(:process_control).permit(:temperature_set, :temperature_out, :check_exterior, :check_line, :check_paint, :check_neme)
+    params.require(:process_control).permit(:temperature_set, :temperature_out, :check_exterior, :check_line, :check_paint, :check_neme, :status)
   end
-  
+
 end

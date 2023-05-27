@@ -1,9 +1,10 @@
 <div>
   <h1>指示書</h1>
-
-  <h4>ID</h4>
-   <%= @instruction.id %>
-
+<%= link_to '編集', edit_admin_instruction_path %>
+<%= link_to '戻る', admin_instructions_path %>
+ 
+  <h4>指定機械</h4>
+   <%= @instruction.machine.machine_unit %>-<%= @instruction.machine.machine_number %>
   <h4>品名</h4>
    <%= @instruction.product_name %>
 
@@ -56,6 +57,4 @@
 
   <h4>概要</h4>
    <%= @instruction.ovrview %>
-
-<%= link_to '指示書編集', edit_admin_instruction_path %>
 </div>

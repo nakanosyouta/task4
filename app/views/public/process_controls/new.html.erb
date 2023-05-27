@@ -2,11 +2,12 @@
   <h1>工程管理</h1>
 
 <%= form_with model: @process_control,url: process_controls_path do |f| %>
+  <%= render 'layouts/error_messages', model: f.object %>
   <h4>機械選択</h4>
   <%= f.select :machine_id, Machine.all.map{ |machine| ["#{machine.machine_unit} - #{machine.machine_number}", machine.id] } %>
   
   <h4>指示書選択</h4>
-  <%= f.select :instruction_id, Instruction.all.map{ |instruction| [" #{instruction.product_name}", instruction.id] } %>
+  <%= f.select :instruction_id, Instruction.all.map{ |instruction| [" No.#{instruction.id} / #{instruction.product_name}", instruction.id] } %>
 
   <h2>CCS</h2>
   <h4>set温度</h4>

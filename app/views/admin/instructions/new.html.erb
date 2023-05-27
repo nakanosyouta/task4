@@ -2,6 +2,10 @@
   <h1>指示書新規登録</h1>
 
 <%= form_with model: @instruction,url: admin_instructions_path do |f| %>
+  <%= render 'layouts/error_messages', model: f.object %>
+  
+     <h4>機械選択</h4>
+      <%= f.select :machine_id, Machine.all.map{ |machine| ["#{machine.machine_unit} - #{machine.machine_number}", machine.id] } %>
     
     <h4>品名</h4>
      <%= f.text_field :product_name %>
